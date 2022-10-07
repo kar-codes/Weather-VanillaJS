@@ -53,12 +53,14 @@ div.future-temperature{
     text-align: center;
     font-family: 'Press Start 2P', cursive;
     color: white;
+    left: 8px;
 }
 
 div.weather-icons{
     position: relative;
     text-align: center;
     color: white;
+    left: 2px;
 }
 
 .search-btn{
