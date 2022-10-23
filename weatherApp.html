@@ -16,19 +16,20 @@
     ></script>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/weatherStyle.css">
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <title>Weather App</title>
 </head>
 <body>
     <div class="container">
         <div class="weatherApp">
-        <form action="">
-            <input type="text" placeholder="Search"/>
-            <span><button type="button" class="btn btn-light search-btn">Go</button></span>
+        <form action="" id="search-form">
+            <input type="text" id="city-input" placeholder="Enter a city"/>
+            <input type="submit" id="search-input" value="Search">
         </form>
-        <h1 class="city">Tallinn</h1>
-        <h3 class="day-time">Friday 10th 20:00</h3>
-        <h2 class="current-temperature">13&deg;C</h2>
-        <h3 class="current-day"><i class="fa-solid fa-cloud"></i> Cloudy</h3>
+        <h1 class="city" id="current-city"></h1>
+        <h3 class="day-time" id="current-date"></h3>
+        <h2 class="current-temperature" id="current-temp"></h2>
+        <h3 class="current-day" id="description"></h3>
         <div class="row weekdays">
             <div class="col">Mon</div>
             <div class="col">Tue</div>
@@ -58,7 +59,7 @@
 
 
 
-
-
+    
+    <script src="index.js"></script>
 </body>
 </html>
