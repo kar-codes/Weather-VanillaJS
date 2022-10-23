@@ -10,7 +10,7 @@ let days = [
 ];
 let currentDay = days[current.getDay()];
 let currentHour = current.getHours();
-let currentMinutes = current.getMinutes();
+let currentMinutes = String(current.getMinutes()).padStart(2, '0');
 
 let dateNow = document.querySelector("#current-date");
 dateNow.innerHTML = ` ${currentDay} ${currentHour}:${currentMinutes}`;
