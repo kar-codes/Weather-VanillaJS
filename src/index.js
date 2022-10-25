@@ -28,9 +28,12 @@ function displayWeatherCondition(response) {
   document.querySelector("#current-city").innerHTML = response.data.name;
   let temperatureElement= (document.querySelector("#current-temp").innerHTML =
   Math.round(response.data.main.temp) + "ºC");
+  let iconElement= document.querySelector("#icon");
   let descriptionElement = document.querySelector("#description").innerHTML = response.data.weather[0].main;
   let dateElement = document.querySelector("#current-date");
+  let windElement = document.querySelector("#wind-condition").innerHTML= "wind speed:" + Math.round(response.data.wind.speed) + " km/h";
   dateElement.innerHTML= formatDate(response.data.dt * 1000);
+  iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 function handleSubmit(event) {

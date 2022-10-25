@@ -8,6 +8,7 @@ div.weatherApp{
     background-image: url(../images/akira2.jpg);
     background-repeat: no-repeat;
     background-size: auto;
+   
     
 }
 
@@ -43,6 +44,13 @@ h2.current-temperature{
 h3.current-day{
     padding-top: 0;
     font-size: 20px ;
+}
+
+
+span.conditions{
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: small;
 }
 
 div.weekdays{
