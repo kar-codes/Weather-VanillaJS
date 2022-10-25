@@ -26,12 +26,11 @@ function formatDate(timestamp){
 function displayWeatherCondition(response) {
   console.log(response);
   document.querySelector("#current-city").innerHTML = response.data.name;
-  let temp= (document.querySelector("#current-temp").innerHTML =
+  let temperatureElement= (document.querySelector("#current-temp").innerHTML =
   Math.round(response.data.main.temp) + "ºC");
-  let description = document.querySelector("#description").innerHTML = response.data.weather[0].main;
+  let descriptionElement = document.querySelector("#description").innerHTML = response.data.weather[0].main;
   let dateElement = document.querySelector("#current-date");
   dateElement.innerHTML= formatDate(response.data.dt * 1000);
-  
 }
 
 function handleSubmit(event) {
