@@ -1,10 +1,10 @@
 div.weatherApp{
-    border: 1px solid lightgrey;
+    border: 1px solid #dadde1;
     max-width: 700px;
     padding: 20px;
     border-radius: 5px;
     margin: 0 auto;
-    box-shadow: 5px 5px 5px lightgrey;
+    box-shadow: 5px 5px 5px #dadde1;
     background-image: url(../images/akira2.jpg);
     background-repeat: no-repeat;
     background-size: auto;
@@ -14,7 +14,7 @@ div.weatherApp{
 h1,h2,h3,h4{
     text-align: center;
     font-family: 'Press Start 2P', cursive;
-    color: white;
+    color: #fff;
 }
 
 input{
@@ -25,7 +25,7 @@ h1.city{
     padding-top: 40px;
     font-size: 25px ;
     animation: flicker 1.5s infinite alternate;
-    color:white;
+    color:#fff;
 }
 h3.day-time{
     padding-top: 0;
@@ -44,7 +44,7 @@ div.weekdays{
     padding-top: 40px;
     text-align: center;
     font-family: 'Press Start 2P', cursive;
-    color: white;
+    color: #fff;
 }
 
 div.future-temperature{
@@ -52,14 +52,14 @@ div.future-temperature{
     padding-top: 0px;
     text-align: center;
     font-family: 'Press Start 2P', cursive;
-    color: white;
+    color: #fff;
     left: 8px;
 }
 
 div.weather-icons{
     position: relative;
     text-align: center;
-    color: white;
+    color: #fff;
     left: 2px;
 }
 
