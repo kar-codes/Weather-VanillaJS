@@ -1,4 +1,3 @@
-let current = new Date();
 let days = [
   "Sunday",
   "Monday",
@@ -8,13 +7,6 @@ let days = [
   "Friday",
   "Saturday"
 ];
-let currentDay = days[current.getDay()];
-let currentHour = current.getHours();
-let currentMinutes = String(current.getMinutes()).padStart(2, '0');
-
-let dateNow = document.querySelector("#current-date");
-dateNow.innerHTML = ` ${currentDay} ${currentHour}:${currentMinutes}`;
-
 
 function search(city) {
   let apiKey = "d78c12116349bac4b6411dc36c6b602c"
@@ -23,12 +15,22 @@ function search(city) {
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
+function formatDate(timestamp){
+  let date = new Date(timestamp);
+  let hours = String(date.getHours()).padStart(2, "0");
+  let minutes = String(date.getMinutes()).padStart(2 , "0");
+  let day = days[date.getDay()];
+  return `Last updated:${day} ${hours}:${minutes}`;
+}
+
 function displayWeatherCondition(response) {
   console.log(response);
   document.querySelector("#current-city").innerHTML = response.data.name;
   let temp= (document.querySelector("#current-temp").innerHTML =
   Math.round(response.data.main.temp) + "ºC");
   let description = document.querySelector("#description").innerHTML = response.data.weather[0].main;
+  let dateElement = document.querySelector("#current-date");
+  dateElement.innerHTML= formatDate(response.data.dt * 1000);
   
 }
 
