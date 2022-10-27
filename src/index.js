@@ -40,8 +40,8 @@ function displayWeatherCondition(response) {
 function displayForecast() {
   let forecastElement= document.querySelector("#forecast");
   let forecastHtml= `<div class="row">`;
-  let dayss = ["Thu","Fri","Sat", "Sun", "Mon"];
-  dayss.forEach(function(day){
+  let forecastDays = ["Thu","Fri","Sat", "Sun", "Mon"];
+  forecastDays.forEach(function(day){
     forecastHtml=  forecastHtml + `
     <div class="col">
         <div class="weather-forecast-date"> 
