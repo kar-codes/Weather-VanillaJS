@@ -42,9 +42,16 @@ h2.current-temperature{
     padding-top: 0;
     font-size: 20px ;
 }
+
+
 h3.current-day{
+    font-size: medium;
+}
+div.current-day{
     padding-top: 0;
     font-size: 20px ;
+    text-align: center;
+    font-size: small;
 }
 
 
@@ -56,25 +63,29 @@ span.conditions{
 
 
 div.weather-forecast{
-    margin-top: 15px;
+    margin-top: 40px;
+    padding: 10px;
     font-family: 'Press Start 2P', cursive;
     color: #fff;
     text-align: center;
+
 }
 
 div.weather-forecast-date {
     font-size: 16px;
+    animation: flicker 1.5s infinite alternate;
     
 
 }
 
 div.weather-forecast-temperature {
     font-size: 13px;
+    font-weight: bolder;
     
 }
 
 span.weather-forecast-temperature-min{
-    opacity: 0.85;
+    opacity: 0.9;
 }
 
 .search-btn{

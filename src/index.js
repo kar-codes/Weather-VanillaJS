@@ -36,6 +36,31 @@ function displayWeatherCondition(response) {
   iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
+
+function displayForecast() {
+  let forecastElement= document.querySelector("#forecast");
+  let forecastHtml= `<div class="row">`;
+  let dayss = ["Thu","Fri","Sat", "Sun", "Mon"];
+  dayss.forEach(function(day){
+    forecastHtml=  forecastHtml + `
+    <div class="col">
+        <div class="weather-forecast-date"> 
+            ${day}
+        </div>
+            <img src="https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_11-256.png" alt="" width="40px"/>
+        <div class="weather-forecast-temperature">
+            <span class="weather-forecast-temperature-max">18&deg;</span> 
+            <span class="weather-forecast-temperature-min">12&deg;</span> 
+        </div>
+  </div>`;
+
+  }) 
+
+forecastHtml= forecastHtml + `</div>`;
+forecastElement.innerHTML= forecastHtml;
+}
+
+
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
@@ -48,7 +73,7 @@ citySearch.addEventListener("submit" , handleSubmit);
 
 
 search("New York");
-
+displayForecast();
 
 
 
