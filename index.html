@@ -1,59 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://kit.fontawesome.com/34a0a18a0a.js"
-      crossorigin="anonymous"
-    ></script>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="src/weatherStyle.css">
-    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-    <title>Weather App</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+  <script src="https://kit.fontawesome.com/34a0a18a0a.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/weatherStyle.css">
+  <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <title>Weather App</title>
 </head>
+
 <body>
-    <div class="container">
-        <div class="weatherApp">
-        <form action="" id="search-form">
-            <input type="text" id="city-input" placeholder="Enter a city"/>
-            <input type="submit" id="search-input" value="Search">
-        </form>
-        <h1 class="city" id="current-city"></h1>
-        <h3 class="day-time" id="current-date"></h3>
-        <h2 class="current-temperature" id="current-temp"></h2>
-        <div class="current-day">
-            <span>
-                <img src="" alt="" id="icon">
-            <h3 class="current-day" id="description"></h3>
-            </span>
-            <span class="conditions" id="wind-speed">
-                <p id="wind-condition">Wind speed: </p>
-            </span>
+  <div class="container">
+    <div class="weatherApp">
+      <form action="" id="search-form">
+        <input type="text" id="city-input" placeholder="Enter a city" />
+        <input type="submit" id="search-input" value="Search">
+      </form>
+      <h1 class="city" id="current-city"></h1>
+      <h3 class="day-time" id="current-date"></h3>
+      <h2 class="current-temperature" id="current-temp"></h2>
+      <div class="current-day">
+        <span>
+          <img src="" alt="" id="icon">
+          <h3 class="current-day" id="description"></h3>
+        </span>
+        <span class="conditions" id="wind-speed">
+          <p id="wind-condition">Wind speed: </p>
+        </span>
+      </div>
+
+      <div class="weather-forecast" id="forecast"></div>
     </div>
-    
+  </div>
 
-        <div class="weather-forecast" id="forecast">
+  <small>Coded by <a href="https://github.com/kar-codes/weatherAppDraft">kar</a> </small>
 
-        </div>
-
-        </div>
-    </div>
- 
-    <small>Coded by <a href="https://github.com/kar-codes/weatherAppDraft">kar</a> </small>
-
-
-
-
-
-    
-    <script src="src/index.js"></script>
+  <script src="src/index.js"></script>
 </body>
+
 </html>
