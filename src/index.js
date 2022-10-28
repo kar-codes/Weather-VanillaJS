@@ -2,7 +2,7 @@ let days = [
   "Sunday",
   "Monday",
   "Tuesday",
-  "Wedsneday",
+  "Wednesday",
   "Thursday",
   "Friday",
   "Saturday"
@@ -15,16 +15,15 @@ function search(city) {
   axios.get(apiUrl).then(displayWeatherCondition);
 }
 
-function formatDate(timestamp){
+function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = String(date.getHours()).padStart(2, "0");
-  let minutes = String(date.getMinutes()).padStart(2 , "0");
+  let minutes = String(date.getMinutes()).padStart(2, "0");
   let day = days[date.getDay()];
   return `Last updated:${day} ${hours}:${minutes}`;
 }
 
-function getForecast(coordinates) {
-
+function getForecast(city) {
   let apiKey = "f4b9b3c3f140t6ca1b114f1eo5df8045"
   let units = "metric";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
@@ -32,58 +31,60 @@ function getForecast(coordinates) {
 }
 
 function displayWeatherCondition(response) {
-  console.log(response);
-  document.querySelector("#current-city").innerHTML = response.data.city;
-  let temperatureElement= (document.querySelector("#current-temp").innerHTML =
-  Math.round(response.data.temperature.current) + "ºC");
-  let iconElement= document.querySelector("#icon");
-  let descriptionElement = document.querySelector("#description").innerHTML = response.data.condition.description;
-  let dateElement = document.querySelector("#current-date");
-  let windElement = document.querySelector("#wind-condition").innerHTML= "wind speed:" + Math.round(response.data.wind.speed) + " km/h";
-  dateElement.innerHTML= formatDate(response.data.time * 1000);
-  iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
-  
-  getForecast(response.data.coordinates);
+  const city = response.data.city;
 
+  document.querySelector("#current-city").innerHTML = city;
+  document.querySelector("#current-temp").innerHTML = `${Math.round(response.data.temperature.current)} ºC`;
+  document.querySelector("#description").innerHTML = response.data.condition.description;
+
+  document.querySelector("#wind-condition").innerHTML = `wind speed: ${Math.round(response.data.wind.speed)} km/h`;
+  document.querySelector("#icon").innerHTML = formatDate(response.data.time * 1000);
+  document.querySelector("#icon").setAttribute("src", `${response.data.condition.icon_url}`);
+
+  getForecast(city);
 }
 
-
-function displayForecast() {
-  let forecastElement= document.querySelector("#forecast");
+function displayForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
   let forecast = response.data.daily;
-  let forecastDays = ["Thu","Fri","Sat", "Sun", "Mon"];
-  forecast.forEach(function(forecastDay){
-    forecastHtml=  forecastHtml + `
+  let forecastHtml = '<div class="row">';
+
+  forecast.shift();
+  forecast.pop();
+
+  forecast.forEach(function (forecastDay) {
+    const date = new Date(forecastDay.time * 1000);
+    const formattedDate = moment(date).format('ddd');
+
+    const icon = forecastDay.condition.icon_url;
+    const minimum = Math.round(forecastDay.temperature.minimum);
+    const maximum = Math.round(forecastDay.temperature.maximum);
+
+    forecastHtml += `
     <div class="col">
         <div class="weather-forecast-date"> 
-            ${forecastDay.data.time}
+            ${formattedDate}
         </div>
-            <img src="https://cdn4.iconfinder.com/data/icons/the-weather-is-nice-today/64/weather_11-256.png" alt="" width="40px"/>
+        <img src="${icon}" alt="" width="40px"/>
         <div class="weather-forecast-temperature">
-            <span class="weather-forecast-temperature-max">18&deg;</span> 
-            <span class="weather-forecast-temperature-min">12&deg;</span> 
+          <span class="weather-forecast-temperature-max">${maximum}&deg;</span> 
+          <span class="weather-forecast-temperature-min">${minimum}&deg;</span> 
         </div>
-  </div>`;
+    </div>`;
+  });
 
-  }) 
-
-forecastHtml= forecastHtml + `</div>`;
-forecastElement.innerHTML= forecastHtml;
-
+  forecastHtml += `</div>`;
+  forecastElement.innerHTML = forecastHtml;
 }
-
-
 
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
   search(city);
- 
 }
 
 let citySearch = document.querySelector("#search-form");
-citySearch.addEventListener("submit" , handleSubmit);
-
+citySearch.addEventListener("submit", handleSubmit);
 
 search("New York");
 
@@ -122,4 +123,3 @@ search("New York");
 
 
 
-  
